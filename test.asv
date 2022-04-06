@@ -1,0 +1,14 @@
+close all;
+clc;
+%a=imread('Screen.png');
+r=255;
+c=r;
+img= uint8(zeros(r,c));
+for i= 1:r
+    for j= 1:c
+        img(i,j)=img(i,j)+1;
+        disp(img(i,j));
+    end
+end
+figure,imshow(img)
+
