@@ -1,7 +1,7 @@
 %Seperating RGB channels from an image
 
 %read image file
-img= imread("images/rgb1.png");
+img= imread("images/flower1.jpg");
 
 %split rgb components using
 %R= img(:,:,1); red channel
@@ -21,10 +21,9 @@ Gimg=cat(3,Black,G,Black);
 Bimg=cat(3,Black,Black,B);
 
 %display original image at centre and 3 rgb color images below it
-fontSize=20;
 subplot(2,3,2);
 imshow(img);
-title('RGB channels seperated','FontSize',fontSize);
+title('RGB channels seperated');
 
 subplot(2,3,4);
 imshow(Rimg);
@@ -36,4 +35,3 @@ title('Green Channel in Green', 'FontSize', fontSize)
 
 subplot(2,3,6);
 imshow(Bimg);
-title('Blue Channel in Blue', 'FontSize', fontSize)
