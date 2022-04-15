@@ -1,10 +1,15 @@
-clc;
-close all;
-I=imread("images\raw.dng");
+clc;                %clear the command window
+%clear variables;    %clear all previously loaded variables
+close all;          %clopse all previously opened windows
 
+%I=imread("images\_MG_7267.CR2");
+
+%to import Color Filter array images(RAW imgs) use raw2rgb
+I=raw2rgb('images\RAW_NIKON_D1.NEF');
+figure,imshow(I);
 %Convert rgb image to YCbCr image
 YCbCr=rgb2ycbcr(I);
-
+figure,imshow(ycbcr2rgb(YCbCr));
 %Downsampling of blue and red chrominance
 %smoothen the image before downsampling
 filtr=ones(4,4)/16;
@@ -12,7 +17,6 @@ cb=conv2(YCbCr(:,:,2),filtr);
 cr=conv2(YCbCr(:,:,2),filtr);
 CbDown=zeros(round(size(cb)/2));
 CrDown=zeros(round(size(cr)/2));
-
 %In a block of 2x2 taking only the fourth/last value
 for i=2:2:size(YCbCr,1)
     for j=2:2:size(YCbCr,2)
@@ -20,6 +24,7 @@ for i=2:2:size(YCbCr,1)
         CrDown(i/2,j/2)=cr(i,j);
     end
 end
+clear cb cr;
 
 %Performing Discrete cosine Transform
 %Luma Quant table
@@ -42,17 +47,21 @@ Qc= [17 18 24 47 99 99 99 99;
     99 99 99 99 99 99 99 99];
 Q=cat(3,Q,Qc,Qc);
 
+%{
 quality=input('Enter the quality setting(1<x<100): ');
-if quality >= 50
+if quality > 50
     %decrease quantization table values by a factor of (100-q)/50
     Q=((100-quality)/50)*Q;
 elseif quality < 50
     %increase quantization table values by 50/q
     Q=(50/quality)*Q;
 end
-
+%}
 blocksize=8;
 [row, col, dim]=size(YCbCr);
+row1=8*ceil(row/8);
+col1=8*ceil(col/8);
+YCbCr=padarray(YCbCr,[row1-row, col1-col],0,'post');
 dct_coeff=zeros([row col dim]);
 dct_quantized=dct_coeff;
 dct_dequant=dct_coeff;
@@ -73,16 +82,27 @@ for k = 1:3
     end
 end
 
-
 compressed_img=cat(3,idct_signal(:,:,1),idct_signal(:,:,2),idct_signal(:,:,3));
-subplot(1,2,1);
+clear dct_coeff dct_quantized dct_dequant idct_signal;
+figure,subplot(1,2,1);
 imshow(I);
+%F=rgb2gray(I);
+%surf(F(10:10:end,10:10:end));
 title('orginal');
 subplot(1,2,2);
-X=ycbcr2rgb(uint8(compressed_img));
-imshow(X);
+%JPEG files only support color space from 0-255
+%i.e, it does not support anything other than uint8
+if  not(isa(class(I),'uint8'))
+    disp('sis')
+    compressed_img = cast(compressed_img,'uint16');
+    compressed_img = im2uint8(compressed_img);
+end
+compressed_img=ycbcr2rgb(compressed_img);
+imshow(compressed_img);
+%F=rgb2gray(X);
+%surf(F(10:10:end,10:10:end));
 title('compress');
-imwrite(X,'result.jpg');
+imwrite(compressed_img,'result.jpg');
 
 
 
