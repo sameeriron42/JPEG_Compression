@@ -8,6 +8,7 @@ python as well😉.
 
 ## Screenshots
 
+- Size is reduced by a Maximum of 23x using DCT compression alone😱 for the given sample RAW images.
 ![](screenshots/lady%20in%20snow.png)
 ![](/screenshots/monke_screenshot.png)
 ![](/screenshots/night%20city.png)
@@ -16,11 +17,11 @@ python as well😉.
 ## Acknowledgements & wisdom 😇
 
  - [Algorithm tutorial by Alex Townsend](http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/JPEG.html)
- -  [Awesome video explaining Computation](https://www.youtube.com/watch?v=Kv1Hiv3ox8I) 
+ - Awesome video explaining Computation 
   
  [![Awesome video explaining Computation](http://img.youtube.com/vi/Kv1Hiv3ox8I/0.jpg)](https://www.youtube.com/watch?v=Kv1Hiv3ox8I "Awesome video explaining Computation")
  
- - [Awesome video explaining Mathematics](https://youtu.be/0me3guauqOU)
+ - Awesome video explaining Mathematics
  
  [![Awesome video explaining Mathematics](http://img.youtube.com/vi/0me3guauqOU/0.jpg)](https://youtu.be/0me3guauqOU "Awesome video explaining Mathematics")
 
@@ -51,11 +52,18 @@ Install image processing toolbox from [here](https://in.mathworks.com/products/i
 - Depending on whether the img is raw or rgb(jpg, png, tiff) img use `raw2rgb` or `imread` respectively.
 - Finally hit `f5` or run button in editor tab
 
-##RGB Channel
-- Just an extra `RGB_channels.m` is to seperate out R,G,B components from image.
-![]()
-- `test.m` is literally what it is a script to test code
+## Extras
 
+- Just an extra `RGB_channels.m` is to seperate out R,G,B components from image.
+![](screenshots/rgb-components.png)
+- `test.m` is literally what it is, a script to test code
+### JPEG compression involves:
+- Chrominance downsampling❌
+- Quantization of DCT coefficients✅
+- Runlength Encoding❌
+- Huffman coding❌
+
+Implementing those with❌ requires building decoder in matlab, maybe you could help me with that😊. Just start an issue
 
 
 
