@@ -6,6 +6,24 @@ Since a significant portion of the algorithm is deeply rooted in mathematical co
 I went ahead to implement this project in MATLAB. with that said it can be easy ported to 
 python as well😉.
 
+## Screenshots
+
+![](screenshots/lady%20in%20snow.png)
+![](/screenshots/monke_screenshot.png)
+![](/screenshots/night%20city.png)
+![](/screenshots/rose%20screenshot.png)
+
+## Acknowledgements & wisdom 😇
+
+ - [Algorithm tutorial by Alex Townsend](http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/JPEG.html)
+ -  [Awesome video explaining Computation](https://www.youtube.com/watch?v=Kv1Hiv3ox8I) 
+  
+ [![Awesome video explaining Computation](http://img.youtube.com/vi/Kv1Hiv3ox8I/0.jpg)](https://www.youtube.com/watch?v=Kv1Hiv3ox8I "Awesome video explaining Computation")
+ 
+ - [Awesome video explaining Mathematics](https://youtu.be/0me3guauqOU)
+ 
+ [![Awesome video explaining Mathematics](http://img.youtube.com/vi/0me3guauqOU/0.jpg)](https://youtu.be/0me3guauqOU "Awesome video explaining Mathematics")
+
 
 ## Authors
 
@@ -31,20 +49,14 @@ Install image processing toolbox from [here](https://in.mathworks.com/products/i
 ### Before compiling
 - specify the `filename`to path of your uncompressed image eg: `images/[your img].tiff`.
 - Depending on whether the img is raw or rgb(jpg, png, tiff) img use `raw2rgb` or `imread` respectively.
+- Finally hit `f5` or run button in editor tab
 
-
-## Acknowledgements
-
- - [Algorithm tutorial by Alex Townsend](http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/JPEG.html)
- -  [Awesome video explaining Computation](https://www.youtube.com/watch?v=Kv1Hiv3ox8I)  
- [![Awesome video explaining Computation](http://img.youtube.com/vi/Kv1Hiv3ox8I/0.jpg)](https://www.youtube.com/watch?v=Kv1Hiv3ox8I "Awesome video explaining Computation")
- - [Awesome video explaining Mathematics](https://youtu.be/0me3guauqOU)
- [![Awesome video explaining Mathematics](http://img.youtube.com/vi/0me3guauqOU/0.jpg)](https://youtu.be/0me3guauqOU "Awesome video explaining Mathematics")
+##RGB Channel
+- Just an extra `RGB_channels.m` is to seperate out R,G,B components from image.
+![]()
+- `test.m` is literally what it is a script to test code
 
 
 
 
 
-## Screenshots
-
-![App Screenshot]()
