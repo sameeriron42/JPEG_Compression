@@ -20,17 +20,26 @@ Download MATLAB from [here](https://matlab.mathworks.com/). U need to have a lic
 ,u could also use your organization/university email🙂.
 
 Install image processing toolbox from [here](https://in.mathworks.com/products/image.html).
+
+## Running the code
+
 - Clone the repo and navigate to the directory in matlab.
 - Under current folder section right click and  select `add to path`> `current folder` option.
 - your uncompressed images should be placed in `images/` folder.
 - compressed image is saved as `result.jpg` in parent folder.
+- `compression.m` is the main script for compression. Plenty of comments is provided so you won't be lost😉
+### Before compiling
+- specify the `filename`to path of your uncompressed image eg: `images/[your img].tiff`.
+- Depending on whether the img is raw or rgb(jpg, png, tiff) img use `raw2rgb` or `imread` respectively.
+
+
 ## Acknowledgements
 
  - [Algorithm tutorial by Alex Townsend](http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/JPEG.html)
-   
-    
- - [![Awesome video explaining Computation](http://img.youtube.com/vi/Kv1Hiv3ox8I/0.jpg)](https://www.youtube.com/watch?v=Kv1Hiv3ox8I "Awesome video explaining Computation")
- - [![Awesome video explaining Mathematics](http://img.youtube.com/vi/0me3guauqOU/0.jpg)](https://youtu.be/0me3guauqOU "Awesome video explaining Mathematics")
+ -  [Awesome video explaining Computation](https://www.youtube.com/watch?v=Kv1Hiv3ox8I)  
+ [![Awesome video explaining Computation](http://img.youtube.com/vi/Kv1Hiv3ox8I/0.jpg)](https://www.youtube.com/watch?v=Kv1Hiv3ox8I "Awesome video explaining Computation")
+ - [Awesome video explaining Mathematics](https://youtu.be/0me3guauqOU)
+ [![Awesome video explaining Mathematics](http://img.youtube.com/vi/0me3guauqOU/0.jpg)](https://youtu.be/0me3guauqOU "Awesome video explaining Mathematics")
 
 
 
@@ -38,10 +47,4 @@ Install image processing toolbox from [here](https://in.mathworks.com/products/i
 
 ## Screenshots
 
-[![App Screenshot](some link here idk)](https://youtu.be/0me3guauqOU "something")
-
-## Demo
-
-Insert gif or link to demo
-
-https://youtu.be/0me3guauqOU
+![App Screenshot]()
