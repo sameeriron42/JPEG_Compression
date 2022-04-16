@@ -1,5 +1,5 @@
 %Seperating RGB channels from an image
-
+close all;
 %read image file
 img= imread("images/rgb1.png");
 
