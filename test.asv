@@ -1,14 +1,36 @@
 close all;
 clc;
-%a=imread('Screen.png');
+
+%a=imread('images/tag @');
+a=raw2rgb('images\raw\RAW_NIKON_D1.NEF');
+%imshow(a);
+b=imcrop(a,[1 1,size(a,2) size(a,1)]);
+figure;
+string1 = {'the original size',imfinfo('images\raw\RAW_NIKON_D1.NEF').FileSize/1024^2};
+subplot(1,2,1),imshow(a);
+annotation('textbox',[0.13 0.08 0.8 0.1],'String','seize2','FitBoxToText','on');
+subplot(1,2,2),imshow(b);
+annotation('textbox',[0.53 0.08 0.8 0.1],'String','seigfffze2','FitBoxToText','on');
+
+%{
+a=2;
+b=(zeros(1,16));
+for i=[1:16]
+    b(i)=a^i;
+end
+b
+%}
 r=255;
 c=r;
+%[r,c]=size(a)
+k=0;
 img= uint8(zeros(r,c));
 for i= 1:r
     for j= 1:c
-        img(i,j)=img(i,j)+1;
-        disp(img(i,j));
+        img(i,j)=k;
+        k=k+1;
     end
+    k=0;
 end
-figure,imshow(img)
+%figure,imshow(img)
 
